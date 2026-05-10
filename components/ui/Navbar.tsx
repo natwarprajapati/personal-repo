@@ -48,9 +48,8 @@ export function Navbar() {
     >
       <div className="container mx-auto px-6 h-20 flex items-center justify-between">
         {/* Logo */}
-        <a href="#hero" className="text-2xl font-heading font-bold tracking-tighter">
-          <span className="text-foreground">Natwar</span>
-          <span className="text-accent-cyan">.dev</span>
+        <a href="#hero" className="flex items-center">
+          <img src="/assets/logo.png" alt="Natwar.dev Logo" className="h-12 w-auto object-contain rounded-xl hover:scale-110 transition-transform duration-300" />
         </a>
 
         {/* Desktop Nav */}

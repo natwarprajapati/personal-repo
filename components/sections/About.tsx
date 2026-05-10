@@ -27,10 +27,14 @@ export function About() {
               <div className="absolute inset-0 bg-gradient-to-br from-accent-cyan via-accent-violet to-accent-magenta rounded-2xl blur-xl opacity-50" />
               <div className="absolute inset-0 rounded-2xl border border-border/50 glass-card overflow-hidden flex items-center justify-center">
                 {/* Fallback image/avatar */}
-                <img src="/assets/ProfileImage/profile-image.webp" alt="Natwar" className="w-full h-full object-cover absolute inset-0 scale-180 " />
+                {/* <img src="/assets/ProfileImage/profile-image.webp" alt="Natwar" className="w-full h-full object-cover absolute inset-0 scale-180 " /> */}
                 <div className="w-full h-full bg-card/80 flex flex-col items-center justify-center text-center p-8">
-                  <div className="w-32 h-32 rounded-full bg-gradient-to-tr from-accent-cyan to-accent-violet mb-6 shadow-[0_0_30px_rgba(0,245,255,0.4)] overflow-hidden" > <img src="/assets/ProfileImage/profile-image.webp" alt="Natwar" className="w-full h-full object-cover absolute inset-0 " /></div>
-                  <h3 className="text-2xl font-bold font-heading mb-2">Natwar</h3>
+                  <div className="w-40 h-40 rounded-full bg-gradient-to-tr from-accent-cyan to-accent-violet mb-6 shadow-[0_0_30px_rgba(0,245,255,0.4)] p-[3px]" >
+                    <div className="w-full h-full rounded-full overflow-hidden relative bg-card">
+                      <img src="/assets/ProfileImage/profile-image.webp" alt="Natwar" className="w-full h-full object-cover scale-135 inset-0 " />
+                    </div>
+                  </div>
+                  <h3 className="text-2xl font-bold font-heading mb-2">Natwar Prajapati</h3>
                   <p className="text-accent-cyan font-mono text-sm">Frontend Developer</p>
                 </div>
               </div>
@@ -39,7 +43,7 @@ export function About() {
               <motion.div
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-                className="absolute -top-6 -right-6 glass-card p-4 rounded-xl border border-accent-cyan/30 shadow-[0_0_15px_rgba(0,245,255,0.2)] flex items-center gap-3"
+                className="absolute -top-4 -right-4 md:-top-6 md:-right-6 lg:-right-8 lg:-top-8 scale-90 sm:scale-100 origin-top-right glass-card p-3 sm:p-4 rounded-xl border border-accent-cyan/30 shadow-[0_0_15px_rgba(0,245,255,0.2)] flex items-center gap-2 sm:gap-3 z-10"
               >
                 <div className="p-2 bg-accent-cyan/20 rounded-lg text-accent-cyan">
                   <Briefcase size={24} />
@@ -53,7 +57,7 @@ export function About() {
               <motion.div
                 animate={{ y: [0, 10, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -bottom-6 -left-6 glass-card p-4 rounded-xl border border-accent-violet/30 shadow-[0_0_15px_rgba(124,58,237,0.2)] flex items-center gap-3"
+                className="absolute -bottom-4 -left-4 md:-bottom-6 md:-left-6 lg:-bottom-8 lg:-left-8 scale-90 sm:scale-100 origin-bottom-left glass-card p-3 sm:p-4 rounded-xl border border-accent-violet/30 shadow-[0_0_15px_rgba(124,58,237,0.2)] flex items-center gap-2 sm:gap-3 z-10"
               >
                 <div className="p-2 bg-accent-violet/20 rounded-lg text-accent-violet">
                   <Code2 size={24} />

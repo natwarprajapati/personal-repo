@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Send, Mail, MapPin, Phone } from "lucide-react";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -8,9 +8,20 @@ import { sendEmail } from "@/app/actions/sendEmail";
 
 export function Contact() {
   const [state, formAction, isPending] = useActionState(sendEmail, null);
+  const [visibleMessage, setVisibleMessage] = useState<{success?: string, error?: string} | null>(null);
+
+  useEffect(() => {
+    if (state?.success || state?.error) {
+      setVisibleMessage(state);
+      const timer = setTimeout(() => {
+        setVisibleMessage(null);
+      }, 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [state]);
 
   return (
-    <section id="contact" className="py-24 relative z-10">
+    <section id="contact" className="py-24 pb-0 relative z-10">
       <div className="container mx-auto px-6">
         <SectionHeading 
           title="Let's Build Something" 
@@ -106,6 +117,24 @@ export function Contact() {
               </div>
 
               <div className="space-y-2">
+                <label htmlFor="phone" className="text-sm font-mono text-muted-foreground ml-1">Phone (Optional)</label>
+                <input 
+                  type="tel" 
+                  id="phone" 
+                  name="phone" 
+                  minLength={10}
+                  maxLength={15}
+                  pattern="^\+?[0-9\s\-()]{7,15}$"
+                  title="Please enter a valid phone number (7 to 15 digits)"
+                  placeholder="+91 98765 43210"
+                  onInput={(e) => {
+                    e.currentTarget.value = e.currentTarget.value.replace(/[^0-9\s\-()+]/g, '');
+                  }}
+                  className="w-full bg-background border border-border rounded-lg px-4 py-3 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:border-transparent transition-all"
+                />
+              </div>
+
+              <div className="space-y-2">
                 <label htmlFor="message" className="text-sm font-mono text-muted-foreground ml-1">Message</label>
                 <textarea 
                   id="message" 
@@ -117,11 +146,11 @@ export function Contact() {
                 />
               </div>
 
-              {state?.error && (
-                <p className="text-red-500 text-sm font-mono">{state.error}</p>
+              {visibleMessage?.error && (
+                <p className="text-red-500 text-sm font-mono">{visibleMessage.error}</p>
               )}
-              {state?.success && (
-                <p className="text-green-500 text-sm font-mono">{state.success}</p>
+              {visibleMessage?.success && (
+                <p className="text-green-500 text-sm font-mono">{visibleMessage.success}</p>
               )}
 
               <button 

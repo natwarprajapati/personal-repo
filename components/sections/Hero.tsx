@@ -67,7 +67,7 @@ export function Hero() {
           <h1 className="text-5xl md:text-7xl font-heading font-bold leading-tight mb-6">
             Hi, I'm <span className="text-glow-cyan text-accent-cyan">Natwar</span>
             <br />
-            <span className="text-3xl md:text-5xl text-muted-foreground min-h-[1.5em] inline-block">
+            <span className="text-2xl md:text-5xl text-muted-foreground min-h-[1.5em] inline-block">
               I'm a{" "}
               <span className="text-foreground border-r-2 border-accent-cyan pr-1 animate-pulse">
                 {currentText}
@@ -79,10 +79,10 @@ export function Hero() {
             I craft stunning, high-performance web applications with a focus on modern design and exceptional user experience. Let's build something extraordinary together.
           </p>
 
-          <div className="flex flex-wrap items-center gap-6 mb-12">
+          <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-4 sm:gap-6 mb-12">
             <a
               href="#projects"
-              className="px-8 py-4 bg-accent-cyan text-background font-bold rounded relative group overflow-hidden"
+              className="w-full sm:w-auto px-8 py-4 bg-accent-cyan text-background font-bold rounded relative group overflow-hidden text-center flex justify-center items-center"
             >
               <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
               <span className="relative">View My Work</span>
@@ -93,7 +93,7 @@ export function Hero() {
               download="Natwar-WebDev.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-4 border border-border hover:border-accent-violet rounded font-bold flex items-center gap-2 group transition-all hover:shadow-[0_0_15px_rgba(124,58,237,0.3)] hover:text-accent-violet"
+              className="w-full sm:w-auto px-8 py-4 border border-border hover:border-accent-violet rounded font-bold flex justify-center items-center gap-2 group transition-all hover:shadow-[0_0_15px_rgba(124,58,237,0.3)] hover:text-accent-violet"
             >
               <Download size={20} className="group-hover:-translate-y-1 transition-transform" />
               Download Resume

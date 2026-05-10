@@ -7,11 +7,15 @@ import { Projects } from "@/components/sections/Projects";
 import { Experience } from "@/components/sections/Experience";
 import { Contact } from "@/components/sections/Contact";
 import { Cursor } from "@/components/ui/Cursor";
+import React from "react";
 
 export default function Home() {
   return (
     <>
-      <Cursor />
+
+      <div className="hidden md:flex">
+        <Cursor />
+      </div>
       <Navbar />
       <main className="flex-1">
         <Hero />
