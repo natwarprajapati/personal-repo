@@ -34,59 +34,61 @@ export function Navbar() {
   }, [mobileMenuOpen]);
 
   return (
-    <motion.header
-      variants={{
-        visible: { y: 0 },
-        hidden: { y: "-100%" },
-      }}
-      animate={hidden ? "hidden" : "visible"}
-      transition={{ duration: 0.35, ease: "easeInOut" }}
-      className={cn(
-        "fixed top-0 inset-x-0 z-50 transition-colors duration-300",
-        isScrolled ? "glass-card border-b border-border shadow-lg" : "bg-transparent border-transparent"
-      )}
-    >
-      <div className="container mx-auto px-6 h-20 flex items-center justify-between">
-        {/* Logo */}
-        <a href="#hero" className="flex items-center">
-          <img src="/assets/logo.png" alt="Natwar.dev Logo" className="h-12 w-auto object-contain rounded-xl hover:scale-110 transition-transform duration-300" />
-        </a>
-
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8">
-          <ul className="flex items-center gap-6">
-            {navLinks.map((link) => (
-              <li key={link.name}>
-                <a
-                  href={link.href}
-                  className="text-sm font-mono text-muted-foreground hover:text-accent-cyan hover:text-glow-cyan transition-all"
-                >
-                  {link.name}
-                </a>
-              </li>
-            ))}
-          </ul>
-          <ThemeToggle />
-          <a
-            href="#contact"
-            className="px-4 py-2 text-sm font-medium border border-accent-violet text-accent-violet rounded hover:bg-accent-violet hover:text-white transition-all shadow-[0_0_10px_rgba(124,58,237,0.2)] hover:shadow-[0_0_20px_rgba(124,58,237,0.6)]"
-          >
-            Let's Talk
+    <>
+      <motion.header
+        variants={{
+          visible: { y: 0 },
+          hidden: { y: "-100%" },
+        }}
+        animate={hidden ? "hidden" : "visible"}
+        transition={{ duration: 0.35, ease: "easeInOut" }}
+        className={cn(
+          "fixed top-0 inset-x-0 z-50 transition-colors duration-300",
+          isScrolled ? "glass-card border-b border-border shadow-lg" : "bg-transparent border-transparent"
+        )}
+      >
+        <div className="container mx-auto px-6 h-20 flex items-center justify-between">
+          {/* Logo */}
+          <a href="#hero" className="flex items-center">
+            <img src="/assets/logo.png" alt="Natwar.dev Logo" className="h-12 w-auto object-contain rounded-xl hover:scale-110 transition-transform duration-300" />
           </a>
-        </nav>
 
-        {/* Mobile Toggle */}
-        <div className="md:hidden flex items-center gap-4">
-          <ThemeToggle />
-          <button
-            onClick={() => setMobileMenuOpen(true)}
-            className="text-foreground focus:outline-none"
-            aria-label="Open menu"
-          >
-            <Menu size={24} />
-          </button>
+          {/* Desktop Nav */}
+          <nav className="hidden md:flex items-center gap-8">
+            <ul className="flex items-center gap-6">
+              {navLinks.map((link) => (
+                <li key={link.name}>
+                  <a
+                    href={link.href}
+                    className="text-sm font-mono text-muted-foreground hover:text-accent-cyan hover:text-glow-cyan transition-all"
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <ThemeToggle />
+            <a
+              href="#contact"
+              className="px-4 py-2 text-sm font-medium border border-accent-violet text-accent-violet rounded hover:bg-accent-violet hover:text-white transition-all shadow-[0_0_10px_rgba(124,58,237,0.2)] hover:shadow-[0_0_20px_rgba(124,58,237,0.6)]"
+            >
+              Let's Talk
+            </a>
+          </nav>
+
+          {/* Mobile Toggle */}
+          <div className="md:hidden flex items-center gap-4">
+            <ThemeToggle />
+            <button
+              onClick={() => setMobileMenuOpen(true)}
+              className="text-foreground focus:outline-none"
+              aria-label="Open menu"
+            >
+              <Menu size={24} />
+            </button>
+          </div>
         </div>
-      </div>
+      </motion.header>
 
       {/* Mobile Nav Drawer Overlay & Sidebar */}
       <AnimatePresence>
@@ -143,6 +145,6 @@ export function Navbar() {
           </>
         )}
       </AnimatePresence>
-    </motion.header>
+    </>
   );
 }
